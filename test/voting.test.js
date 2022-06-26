@@ -57,7 +57,9 @@ contract("Voting", (accounts) => {
 
   const addProposals = async (caller) => {
     for (let i = 0; i < PROPOSALS.length; i++) {
-      await this.voting.addProposal(PROPOSALS[i].description, { from: caller });
+      const result = await this.voting.addProposal(PROPOSALS[i].description, {
+        from: caller,
+      });
     }
   };
 
@@ -520,30 +522,42 @@ contract("Voting", (accounts) => {
     });
 
     it("...should calculate the winning proposal", async () => {
-      await addVoters();
+      await this.voting.addVoter(OWNER, { from: OWNER });
+      await this.voting.addVoter(VOTER_1, { from: OWNER });
+      await this.voting.addVoter(VOTER_2, { from: OWNER });
+      await this.voting.addVoter(VOTER_3, { from: OWNER });
+      await this.voting.addVoter(VOTER_4, { from: OWNER });
+      await this.voting.addVoter(VOTER_5, { from: OWNER });
+
       await this.voting.startProposalsRegistering({ from: OWNER });
+
       await addProposals(VOTER_1);
+
       await this.voting.endProposalsRegistering({ from: OWNER });
       await this.voting.startVotingSession({ from: OWNER });
+
       await this.voting.setVote(PROPOSAL_1.id, {
-        from: VOTERS[0],
+        from: OWNER,
       });
       await this.voting.setVote(PROPOSAL_1.id, {
-        from: VOTERS[1],
-      });
-      await this.voting.setVote(PROPOSAL_1.id, {
-        from: VOTERS[2],
+        from: VOTER_1,
       });
       await this.voting.setVote(PROPOSAL_2.id, {
-        from: VOTERS[3],
+        from: VOTER_2,
       });
       await this.voting.setVote(PROPOSAL_2.id, {
-        from: VOTERS[4],
+        from: VOTER_3,
+      });
+      await this.voting.setVote(PROPOSAL_2.id, {
+        from: VOTER_4,
+      });
+      await this.voting.setVote(PROPOSAL_3.id, {
+        from: VOTER_5,
       });
       await this.voting.endVotingSession({ from: OWNER });
       await this.voting.tallyVotes({ from: OWNER });
       const winner = await this.voting.winningProposalID();
-      expect(winner).to.bignumber.equal(PROPOSAL_1.id);
+      expect(winner).to.bignumber.equal(PROPOSAL_2.id);
     });
   });
 });
