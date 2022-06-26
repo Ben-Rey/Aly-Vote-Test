@@ -99,7 +99,6 @@ truffle run coverage
 #### Function Add Proposal
 
 ```text
-
   ✅  should add a proposal (81ms)
   ✅  should emit an event ProposalRegistered when addProposal is called (82ms)
   ✅  should revert when addProposal is called and status is not ProposalsRegistering (59ms)
@@ -112,7 +111,7 @@ truffle run coverage
 ```text
 
   ✅  should set a vote (174ms)
-      should emit an event when a voter has voted
+  ✅  should emit an event when a voter has voted
   ✅  should revert when setVote is called by non-voter (184ms)
   ✅  should revert when setVote is called and status is not VotingSession (97ms)
   ✅  should revert when setVote is called and the proposal is not found (281ms)
@@ -122,7 +121,6 @@ truffle run coverage
 #### Function getVoter
 
 ```text
-
   ✅  should revert when getVoter is called by non-voter (202ms)
   ✅  should return the voter (449ms)
   ✅  should revert when getOneProposal is called by non-voter (228ms)
@@ -132,6 +130,5 @@ truffle run coverage
 #### Winner Id calculation
 
 ```text
-
   ✅  should calculate the winning proposal (1178ms)
 ```
