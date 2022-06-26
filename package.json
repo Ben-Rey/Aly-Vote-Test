@@ -1,0 +1,35 @@
+{
+  "name": "aly-vote-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "coverage": "truffle run coverage"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
+    "@openzeppelin/test-helpers": "^0.5.15",
+    "@truffle/hdwallet-provider": "^2.0.9",
+    "dotenv": "^16.0.1",
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "eth-gas-reporter": "^0.2.25",
+    "solidity-coverage": "0.8.0-beta.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ben-Rey/Aly-Vote-Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ben-Rey/Aly-Vote-Test/issues"
+  },
+  "homepage": "https://github.com/Ben-Rey/Aly-Vote-Test#readme"
+}
