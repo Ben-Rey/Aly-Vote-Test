@@ -3,7 +3,7 @@
 </p>
 
 # Voting contract test
-
+The goal is to test the functionalities of the voting.sol contract
 ## ⚙️ Setup
 
 ```sh
