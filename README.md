@@ -14,7 +14,11 @@ npm install
 
 ```sh
 npm run test
+```
+
 or
+
+```sh
 truffle test
 ```
 
@@ -22,7 +26,11 @@ truffle test
 
 ```sh
 npm run coverage
+```
+
 or
+
+```sh
 truffle run coverage
 ```
 
